@@ -1,0 +1,23 @@
+{
+  "name": "0chain-bridge",
+  "version": "1.0.0",
+  "description": "erc20 to bep2 bridge",
+  "scripts": {
+    "compile": "truffle compile --all",
+    "test": "npm run compile && truffle test"
+  },
+  "author": "Christopher Dancy<christopherdancyblockchain@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.0.0",
+    "@openzeppelin/contracts-upgradeable": "^4.0.0",
+    "@openzeppelin/test-helpers": "^0.5.10",
+    "@openzeppelin/truffle-upgrades": "^1.5.0",
+    "@truffle/hdwallet-provider": "^1.2.1",
+    "dotenv": "^8.2.0",
+    "truffle": "5.1.49"
+  },
+  "engines": {
+    "node": "14.15.5"
+  }
+}
