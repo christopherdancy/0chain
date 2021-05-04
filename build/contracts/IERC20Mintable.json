@@ -34,15 +34,15 @@
     "absolutePath": "/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol",
     "exportedSymbols": {
       "IERC20Mintable": [
-        338
+        379
       ]
     },
-    "id": 339,
+    "id": 380,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 330,
+        "id": 371,
         "literals": [
           "solidity",
           "^",
@@ -58,9 +58,9 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 338,
+        "id": 379,
         "linearizedBaseContracts": [
-          338
+          379
         ],
         "name": "IERC20Mintable",
         "nameLocation": "67:14:4",
@@ -68,7 +68,7 @@
         "nodes": [
           {
             "functionSelector": "40c10f19",
-            "id": 337,
+            "id": 378,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -76,17 +76,17 @@
             "nameLocation": "97:4:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 335,
+              "id": 376,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 332,
+                  "id": 373,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "110:2:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 337,
+                  "scope": 378,
                   "src": "102:10:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -95,7 +95,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 331,
+                    "id": 372,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "102:7:4",
@@ -109,12 +109,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 334,
+                  "id": 375,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "122:6:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 337,
+                  "scope": 378,
                   "src": "114:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -123,7 +123,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 333,
+                    "id": 374,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "114:7:4",
@@ -138,19 +138,19 @@
               "src": "101:28:4"
             },
             "returnParameters": {
-              "id": 336,
+              "id": 377,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "138:0:4"
             },
-            "scope": 338,
+            "scope": 379,
             "src": "88:51:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 339,
+        "scope": 380,
         "src": "57:84:4",
         "usedErrors": []
       }
@@ -161,15 +161,15 @@
     "absolutePath": "/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol",
     "exportedSymbols": {
       "IERC20Mintable": [
-        338
+        379
       ]
     },
-    "id": 339,
+    "id": 380,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 330,
+        "id": 371,
         "literals": [
           "solidity",
           "^",
@@ -185,9 +185,9 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 338,
+        "id": 379,
         "linearizedBaseContracts": [
-          338
+          379
         ],
         "name": "IERC20Mintable",
         "nameLocation": "67:14:4",
@@ -195,7 +195,7 @@
         "nodes": [
           {
             "functionSelector": "40c10f19",
-            "id": 337,
+            "id": 378,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -203,17 +203,17 @@
             "nameLocation": "97:4:4",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 335,
+              "id": 376,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 332,
+                  "id": 373,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "110:2:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 337,
+                  "scope": 378,
                   "src": "102:10:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -222,7 +222,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 331,
+                    "id": 372,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "102:7:4",
@@ -236,12 +236,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 334,
+                  "id": 375,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "122:6:4",
                   "nodeType": "VariableDeclaration",
-                  "scope": 337,
+                  "scope": 378,
                   "src": "114:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -250,7 +250,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 333,
+                    "id": 374,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "114:7:4",
@@ -265,19 +265,19 @@
               "src": "101:28:4"
             },
             "returnParameters": {
-              "id": 336,
+              "id": 377,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "138:0:4"
             },
-            "scope": 338,
+            "scope": 379,
             "src": "88:51:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 339,
+        "scope": 380,
         "src": "57:84:4",
         "usedErrors": []
       }
@@ -290,7 +290,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.1",
-  "updatedAt": "2021-05-04T20:23:44.087Z",
+  "updatedAt": "2021-05-04T22:46:29.829Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

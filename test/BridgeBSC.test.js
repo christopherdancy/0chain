@@ -9,7 +9,7 @@ contract("BridgeBSC", (accounts) => {
   let MintBurnInstance
   let BridgeBSCInstance
 
-  const [owner, minter, burner, admin, user1BSC, user1ETH] = accounts;
+  const [owner, minter, burner, admin, user1BSC, user1ETH, minterBridge, adminBridge ] = accounts;
 
   const amount = new BN('1000');
   const mintamount = new BN('20000');
@@ -20,7 +20,7 @@ contract("BridgeBSC", (accounts) => {
   describe("When deploying contract", () => {
     beforeEach(async () => {
       MintBurnInstance = await MintBurn.new( minter, burner, admin, { from: owner });
-      BridgeBSCInstance = await BridgeBSC.new( MintBurnInstance.address, { from: owner });
+      BridgeBSCInstance = await BridgeBSC.new( MintBurnInstance.address, minterBridge, adminBridge, { from: owner });
     })
 
     it("should set the correct token interface", async () => {
@@ -41,7 +41,7 @@ contract("BridgeBSC", (accounts) => {
   describe("When transfering tokens to ETH", () => {
     beforeEach(async () => {
       MintBurnInstance = await MintBurn.new( minter, burner, admin, { from: owner });
-      BridgeBSCInstance = await BridgeBSC.new( MintBurnInstance.address, { from: owner });
+      BridgeBSCInstance = await BridgeBSC.new( MintBurnInstance.address, minterBridge, adminBridge, { from: owner });
       await MintBurnInstance.grantBurnerRole(BridgeBSCInstance.address, { from: admin });
       await MintBurnInstance.mint(user1BSC, mintamount, { from: minter });
     })
@@ -89,6 +89,57 @@ contract("BridgeBSC", (accounts) => {
         date: currentTime,
         nonce: currentNonce,
         step: "0",
+      });    
+    })
+  })
+
+  describe("When transfering tokens to BSC", () => {
+    beforeEach(async () => {
+      MintBurnInstance = await MintBurn.new( minter, burner, admin, { from: owner });
+      BridgeBSCInstance = await BridgeBSC.new( MintBurnInstance.address, minterBridge, adminBridge, { from: owner });
+      await MintBurnInstance.grantBurnerRole(BridgeBSCInstance.address, { from: admin });
+      await MintBurnInstance.grantMinterRole(BridgeBSCInstance.address, { from: admin });
+    })
+
+    it("Minting BSC tokens should increase user's account", async () => {
+      expect(await MintBurnInstance.balanceOf(user1BSC)).to.be.bignumber.that.equals("0");
+      await BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      expect(await MintBurnInstance.balanceOf(user1BSC)).to.be.bignumber.that.equals("20000");
+    })
+
+    it("Processed Nonce should update to true", async () => {
+      expect(await BridgeBSCInstance.processedNonces(0)).to.be.false;
+      await BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      expect(await BridgeBSCInstance.processedNonces(0)).to.be.true;
+    })
+
+    it("non-BSC minter should revert", async () => {
+      await expectRevert(
+        BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minter }),
+        "Caller is not a minter"
+      )
+    })
+    
+    it("revert already processed nonce", async () => {
+      await MintBurnInstance.mint(user1BSC, mintamount, { from: minter });
+      BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      await expectRevert(
+        BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge }),
+        "transfer already processed"
+      )
+    })
+
+    it("Should emit Transfer Event", async () => {
+      currentNonce = await BridgeBSCInstance.nonce();
+      const { logs } = await BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      currentTime = await time.latest();
+      expectEvent.inLogs(logs, 'Transfer', {
+        from: minterBridge,
+        to: user1BSC,
+        amount: mintamount,
+        date: currentTime,
+        nonce: currentNonce,
+        step: "1",
       });    
     })
   })
