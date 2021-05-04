@@ -27,8 +27,8 @@ contract MintBurn is ERC20, AccessControl {
         _mint(to_, amount_);
     }
 
-    function burn (uint256 amount) public virtual {
+    function burn (address from_, uint256 amount_) public virtual {
         require(hasRole(BURNER_ROLE, msg.sender), "Caller is not a burner");
-        _burn(_msgSender(), amount);
+        _burn(from_, amount_);
     }
 }
