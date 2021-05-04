@@ -1,7 +1,6 @@
-const { BN, expectRevert} = require('@openzeppelin/test-helpers');
+const { BN, expectRevert, time } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 const MintBurn = artifacts.require("MintBurn")
-const toBN = web3.utils.toBN
 
 contract("MintBurn", (accounts) => {
   let MintBurnInstance
@@ -70,6 +69,7 @@ contract("MintBurn", (accounts) => {
       )
     })
   })
+  
   describe("When granting and revoking roles", () => {
     beforeEach(async () => {
       MintBurnInstance = await MintBurn.new( minter, burner, admin, { from: owner });

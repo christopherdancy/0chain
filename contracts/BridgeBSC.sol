@@ -7,7 +7,6 @@ import './IMintBurn.sol';
 
 
 contract BridgeBSC {
-  address public admin;
   IMintBurn public token;
   uint public nonce;
   mapping(uint => bool) public processedNonces;
@@ -26,12 +25,12 @@ contract BridgeBSC {
     token = IMintBurn(_token);
   }
 
-  function transferToETH(address to, uint amount) external {
-    token.burn(msg.sender, amount);
+  function transferToETH(address to_, uint amount_) external {
+    token.burn(msg.sender, amount_);
     emit Transfer(
       msg.sender,
-      to,
-      amount,
+      to_,
+      amount_,
       block.timestamp,
       nonce,
       Step.Burn
@@ -39,7 +38,7 @@ contract BridgeBSC {
     nonce++;
   }
 
-  function transferFromBSC(address to, uint amount, uint otherChainNonce) external {
+  function transferToBSC(address to, uint amount, uint otherChainNonce) external {
     require(processedNonces[otherChainNonce] == false, 'transfer already processed');
     processedNonces[otherChainNonce] = true;
     token.mint(to, amount);
