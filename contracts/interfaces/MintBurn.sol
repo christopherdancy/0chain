@@ -15,7 +15,9 @@ contract MintBurn is ERC20, AccessControl {
         // to grant and revoke any roles
         _setupRole(ADMIN_ROLE, admin);
         _setupRole(MINTER_ROLE, minter);
+        _setRoleAdmin(MINTER_ROLE, ADMIN_ROLE);
         _setupRole(BURNER_ROLE, burner);
+        _setRoleAdmin(BURNER_ROLE, ADMIN_ROLE);
     }
 
     function decimals () public override pure returns(uint8) {
@@ -30,5 +32,21 @@ contract MintBurn is ERC20, AccessControl {
     function burn (address from_, uint256 amount_) public virtual {
         require(hasRole(BURNER_ROLE, msg.sender), "Caller is not a burner");
         _burn(from_, amount_);
+    }
+
+    function grantMinterRole (address newMinter) public {
+        grantRole(MINTER_ROLE, newMinter);
+    }
+
+    function grantBurnerRole (address newBurner) public {
+        grantRole(BURNER_ROLE, newBurner);
+    }
+
+    function revokeMinterRole (address newMinter) public {
+        revokeRole(MINTER_ROLE, newMinter);
+    }
+
+    function revokeBurnerRole (address newBurner) public {
+        revokeRole(BURNER_ROLE, newBurner);
     }
 }

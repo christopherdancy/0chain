@@ -6,7 +6,7 @@ const toBN = web3.utils.toBN
 contract("MintBurn", (accounts) => {
   let MintBurnInstance
 
-  const [owner, minter, burner, user1] = accounts;
+  const [owner, minter, burner, user1, admin, newMinter, newBurner] = accounts;
 
   const amount = new BN('1000');
   const mintamount = new BN('20000');
@@ -69,5 +69,61 @@ contract("MintBurn", (accounts) => {
         "Caller is not a burner"
       )
     })
+  })
+  describe("When granting and revoking roles", () => {
+    beforeEach(async () => {
+      MintBurnInstance = await MintBurn.new( minter, burner, admin, { from: owner });
+    })
+
+    it("should be able to add a new minter", async () => {
+      await MintBurnInstance.grantMinterRole(newMinter, { from: admin });
+      expect(await MintBurnInstance.hasRole(MINTER_ROLE, newMinter)).to.be.true;
+    })
+
+    it("non- admin rever granting minting role", async () => {
+      await expectRevert(
+        MintBurnInstance.grantMinterRole(newMinter, { from: user1 }),
+        "AccessControl: account 0x821aea9a577a9b44299b9c15c88cf3087f3b5544 is missing role 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775"
+      )
+    })
+
+    it("should be able to add a new burner", async () => {
+      await MintBurnInstance.grantBurnerRole(newBurner, { from: admin });
+      expect(await MintBurnInstance.hasRole(BURNER_ROLE, newBurner)).to.be.true;
+    })
+
+    it("non-admin revert granting burner role", async () => {
+      await expectRevert(
+        MintBurnInstance.grantBurnerRole(newBurner, { from: user1 }),
+        "AccessControl: account 0x821aea9a577a9b44299b9c15c88cf3087f3b5544 is missing role 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775"
+      )
+    })
+
+    it("should be able to remove the new minter", async () => {
+      await MintBurnInstance.grantMinterRole(newMinter, { from: admin });
+      await MintBurnInstance.revokeMinterRole(newMinter, { from: admin });
+      expect(await MintBurnInstance.hasRole(MINTER_ROLE, newMinter)).to.be.false;
+    })
+
+    it("non-admin revert revoking minter role", async () => {
+      await expectRevert(
+        MintBurnInstance.revokeMinterRole(newMinter, { from: user1 }),
+        "AccessControl: account 0x821aea9a577a9b44299b9c15c88cf3087f3b5544 is missing role 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775"
+      )
+    })
+
+    it("should be able to remove the new burner", async () => {
+      await MintBurnInstance.grantBurnerRole(newBurner, { from: admin });
+      await MintBurnInstance.revokeBurnerRole(newBurner, { from: admin });
+      expect(await MintBurnInstance.hasRole(BURNER_ROLE, newBurner)).to.be.false;
+    })
+
+    it("non-admin revert revoking burner role", async () => {
+      await expectRevert(
+        MintBurnInstance.revokeBurnerRole(newBurner, { from: user1 }),
+        "AccessControl: account 0x821aea9a577a9b44299b9c15c88cf3087f3b5544 is missing role 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775"
+      )
+    })
+    
   })
 })
