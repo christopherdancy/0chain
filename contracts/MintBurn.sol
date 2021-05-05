@@ -42,11 +42,11 @@ contract MintBurn is ERC20, AccessControl {
         grantRole(BURNER_ROLE, newBurner);
     }
 
-    function revokeMinterRole (address newMinter) public {
-        revokeRole(MINTER_ROLE, newMinter);
+    function revokeMinterRole (address previousMinter) public {
+        revokeRole(MINTER_ROLE, previousMinter);
     }
 
-    function revokeBurnerRole (address newBurner) public {
-        revokeRole(BURNER_ROLE, newBurner);
+    function revokeBurnerRole (address previousBurner) public {
+        revokeRole(BURNER_ROLE, previousBurner);
     }
 }

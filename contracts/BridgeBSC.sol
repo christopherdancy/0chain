@@ -33,6 +33,14 @@ contract BridgeBSC is AccessControl{
     _setRoleAdmin(MINTER_ROLE, ADMIN_ROLE);
   }
 
+  function grantMinterRole (address newMinter) public {
+      grantRole(MINTER_ROLE, newMinter);
+  }
+
+  function revokeMinterRole (address previousMinter) public {
+      revokeRole(MINTER_ROLE, previousMinter);
+  }
+
   function transferToETH(address to_, uint amount_) external {
     token.burn(msg.sender, amount_);
     emit Transfer(
