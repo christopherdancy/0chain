@@ -43,25 +43,25 @@ contract("BridgeBSC", (accounts) => {
       MintBurnInstance = await MintBurn.new( minter, burner, admin, { from: owner });
       BridgeBSCInstance = await BridgeBSC.new( MintBurnInstance.address, minterBridge, adminBridge, { from: owner });    })
 
-    it.only("should be able to add a new minter", async () => {
+    it("should be able to add a new minter", async () => {
       await BridgeBSCInstance.grantMinterRole(newMinter, { from: adminBridge });
       expect(await BridgeBSCInstance.hasRole(MINTER_ROLE, newMinter)).to.be.true;
     })
 
-    it.only("non- admin revert granting minting role", async () => {
+    it("non- admin revert granting minting role", async () => {
       await expectRevert(
         BridgeBSCInstance.grantMinterRole(newMinter, { from: user1BSC }),
         "AccessControl: account 0x0d1d4e623d10f9fba5db95830f7d3839406c6af2 is missing role 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775"
       )
     })
 
-    it.only("should be able to remove the new minter", async () => {
+    it("should be able to remove the new minter", async () => {
       await BridgeBSCInstance.grantMinterRole(newMinter, { from: adminBridge });
       await BridgeBSCInstance.revokeMinterRole(newMinter, { from: adminBridge });
       expect(await BridgeBSCInstance.hasRole(MINTER_ROLE, newMinter)).to.be.false;
     })
 
-    it.only("non-admin revert revoking minter role", async () => {
+    it("non-admin revert revoking minter role", async () => {
       await expectRevert(
         BridgeBSCInstance.revokeMinterRole(newMinter, { from: user1BSC }),
         "AccessControl: account 0x0d1d4e623d10f9fba5db95830f7d3839406c6af2 is missing role 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775"
