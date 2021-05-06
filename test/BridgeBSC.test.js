@@ -33,8 +33,8 @@ contract("BridgeBSC", (accounts) => {
 
     it("nonce processed mapping should be false", async () => {
       expect(await BridgeBSCInstance.processedNonces(0)).to.be.false;
-      expect(await BridgeBSCInstance.processedNonces(0)).to.be.false;
-      expect(await BridgeBSCInstance.processedNonces(0)).to.be.false;
+      expect(await BridgeBSCInstance.processedNonces(1)).to.be.false;
+      expect(await BridgeBSCInstance.processedNonces(2)).to.be.false;
     })
   })
 
@@ -134,38 +134,38 @@ contract("BridgeBSC", (accounts) => {
 
     it("Minting BSC tokens should increase user's account", async () => {
       expect(await MintBurnInstance.balanceOf(user1BSC)).to.be.bignumber.that.equals("0");
-      await BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      await BridgeBSCInstance.transferToBSC(user1ETH, user1BSC, mintamount, 0, { from: minterBridge });
       expect(await MintBurnInstance.balanceOf(user1BSC)).to.be.bignumber.that.equals("20000");
     })
 
     it("Processed Nonce should update to true", async () => {
       expect(await BridgeBSCInstance.processedNonces(0)).to.be.false;
-      await BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      await BridgeBSCInstance.transferToBSC(user1ETH,user1BSC, mintamount, 0, { from: minterBridge });
       expect(await BridgeBSCInstance.processedNonces(0)).to.be.true;
     })
 
     it("non-BSC minter should revert", async () => {
       await expectRevert(
-        BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minter }),
+        BridgeBSCInstance.transferToBSC(user1ETH, user1BSC, mintamount, 0, { from: minter }),
         "Caller is not a minter"
       )
     })
     
     it("revert already processed nonce", async () => {
       await MintBurnInstance.mint(user1BSC, mintamount, { from: minter });
-      BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      BridgeBSCInstance.transferToBSC(user1ETH, user1BSC, mintamount, 0, { from: minterBridge });
       await expectRevert(
-        BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge }),
+        BridgeBSCInstance.transferToBSC(user1ETH, user1BSC, mintamount, 0, { from: minterBridge }),
         "transfer already processed"
       )
     })
 
     it("Should emit Transfer Event", async () => {
       currentNonce = await BridgeBSCInstance.nonce();
-      const { logs } = await BridgeBSCInstance.transferToBSC(user1BSC, mintamount, 0, { from: minterBridge });
+      const { logs } = await BridgeBSCInstance.transferToBSC(user1ETH, user1BSC, mintamount, currentNonce, { from: minterBridge });
       currentTime = await time.latest();
       expectEvent.inLogs(logs, 'Transfer', {
-        from: minterBridge,
+        from: user1ETH,
         to: user1BSC,
         amount: mintamount,
         date: currentTime,

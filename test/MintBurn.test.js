@@ -47,7 +47,7 @@ contract("MintBurn", (accounts) => {
     })
 
     it("should override decimals to 8", async () => {
-      expect(await MintBurnInstance.decimals()).to.be.bignumber.that.equals("8");
+      expect(await MintBurnInstance.decimals()).to.be.bignumber.that.equals("10");
     })
 
     it("the balanceOf the user decreases with burning", async () => {

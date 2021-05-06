@@ -54,13 +54,13 @@ contract BridgeBSC is AccessControl{
     nonce++;
   }
 
-  function transferToBSC(address to, uint amount, uint otherChainNonce) external {
+  function transferToBSC(address from, address to, uint amount, uint otherChainNonce) external {
     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
     require(processedNonces[otherChainNonce] == false, 'transfer already processed');
     processedNonces[otherChainNonce] = true;
     token.mint(to, amount);
     emit Transfer(
-      msg.sender,
+      from,
       to,
       amount,
       block.timestamp,

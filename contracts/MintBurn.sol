@@ -21,7 +21,7 @@ contract MintBurn is ERC20, AccessControl {
     }
 
     function decimals () public override pure returns(uint8) {
-        return 8;
+        return 10;
     }
 
     function mint (address to_, uint256 amount_) public {
