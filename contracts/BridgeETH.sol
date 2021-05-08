@@ -41,7 +41,7 @@ contract BridgeETH is AccessControl{
       revokeRole(RELEASER_ROLE, previousMinter);
   }
 
-  function transferToBSC(address to, uint amount) external {
+  function transferFromETHToBSC(address to, uint amount) external {
     token.safeTransferFrom(msg.sender, address(this), amount);
     emit Transfer(
       msg.sender,
@@ -54,7 +54,7 @@ contract BridgeETH is AccessControl{
     nonce++;
   }
 
-  function transferToETH(address from, address to, uint amount, uint otherChainNonce) external {
+  function transferFromBSCToETH(address from, address to, uint amount, uint otherChainNonce) external {
     require(hasRole(RELEASER_ROLE, msg.sender), "Caller is not a releaser");
     require(processedNonces[otherChainNonce] == false, 'transfer already processed');
     processedNonces[otherChainNonce] = true;

@@ -41,7 +41,7 @@ contract BridgeBSC is AccessControl{
       revokeRole(MINTER_ROLE, previousMinter);
   }
 
-  function transferToETH(address to_, uint amount_) external {
+  function transferFromBSCToETH(address to_, uint amount_) external {
     token.burn(msg.sender, amount_);
     emit Transfer(
       msg.sender,
@@ -54,7 +54,7 @@ contract BridgeBSC is AccessControl{
     nonce++;
   }
 
-  function transferToBSC(address from, address to, uint amount, uint otherChainNonce) external {
+  function transferFromETHToBSC(address from, address to, uint amount, uint otherChainNonce) external {
     require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
     require(processedNonces[otherChainNonce] == false, 'transfer already processed');
     processedNonces[otherChainNonce] = true;
