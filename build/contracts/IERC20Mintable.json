@@ -20,7 +20,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol\":\"IERC20Mintable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol\":{\"keccak256\":\"0x728af1b0995186e28874c27bde43ed54c4a18880caf25f5c023c47006242e854\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4ca5ae0405b2d4771583db9f1f3811a96f90a1847474dda397f6fcb0dddfe489\",\"dweb:/ipfs/QmYJup1BYBdEmATRP6nhvArugEuwXgc9sDVuimF5XLWGPh\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol\":\"IERC20Mintable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol\":{\"keccak256\":\"0xb7c446f2174499a609af3fb0658d078611a81bf987a9c79ce003ac0a17a0d119\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df1849f9b971acedd36a149b5129cb566da97c70e4b38d2552eb864ada992391\",\"dweb:/ipfs/QmQbstmc7BCeccAmDbVHUnc73dega8X7Cvby166KM6Vo4V\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -28,29 +28,29 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\ninterface IERC20Mintable {\n    function mint(address to, uint256 amount) external;\n}",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IERC20Mintable {\n    function mint(address to, uint256 amount) external;\n}",
   "sourcePath": "/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol",
   "ast": {
     "absolutePath": "/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol",
     "exportedSymbols": {
       "IERC20Mintable": [
-        593
+        484
       ]
     },
-    "id": 594,
+    "id": 485,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 585,
+        "id": 476,
         "literals": [
           "solidity",
           "^",
           "0.8",
-          ".4"
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:5"
+        "src": "32:23:4"
       },
       {
         "abstract": false,
@@ -58,36 +58,33 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 593,
+        "id": 484,
         "linearizedBaseContracts": [
-          593
+          484
         ],
         "name": "IERC20Mintable",
-        "nameLocation": "67:14:5",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "40c10f19",
-            "id": 592,
+            "id": 483,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "97:4:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 590,
+              "id": 481,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 587,
+                  "id": 478,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "110:2:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 592,
-                  "src": "102:10:5",
+                  "scope": 483,
+                  "src": "102:10:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -95,10 +92,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 586,
+                    "id": 477,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "102:7:5",
+                    "src": "102:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -109,13 +106,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 589,
+                  "id": 480,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "122:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 592,
-                  "src": "114:14:5",
+                  "scope": 483,
+                  "src": "114:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -123,10 +119,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 588,
+                    "id": 479,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "114:7:5",
+                    "src": "114:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -135,49 +131,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "101:28:5"
+              "src": "101:28:4"
             },
             "returnParameters": {
-              "id": 591,
+              "id": 482,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "138:0:5"
+              "src": "138:0:4"
             },
-            "scope": 593,
-            "src": "88:51:5",
+            "scope": 484,
+            "src": "88:51:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 594,
-        "src": "57:84:5",
-        "usedErrors": []
+        "scope": 485,
+        "src": "57:84:4"
       }
     ],
-    "src": "32:109:5"
+    "src": "32:109:4"
   },
   "legacyAST": {
     "absolutePath": "/Users/christopherdancy/Blockchain/0chain/contracts/interfaces/IERC20Mintable.sol",
     "exportedSymbols": {
       "IERC20Mintable": [
-        593
+        484
       ]
     },
-    "id": 594,
+    "id": 485,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 585,
+        "id": 476,
         "literals": [
           "solidity",
           "^",
           "0.8",
-          ".4"
+          ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:5"
+        "src": "32:23:4"
       },
       {
         "abstract": false,
@@ -185,36 +180,33 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 593,
+        "id": 484,
         "linearizedBaseContracts": [
-          593
+          484
         ],
         "name": "IERC20Mintable",
-        "nameLocation": "67:14:5",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "40c10f19",
-            "id": 592,
+            "id": 483,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "97:4:5",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 590,
+              "id": 481,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 587,
+                  "id": 478,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "110:2:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 592,
-                  "src": "102:10:5",
+                  "scope": 483,
+                  "src": "102:10:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -222,10 +214,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 586,
+                    "id": 477,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "102:7:5",
+                    "src": "102:7:4",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -236,13 +228,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 589,
+                  "id": 480,
                   "mutability": "mutable",
                   "name": "amount",
-                  "nameLocation": "122:6:5",
                   "nodeType": "VariableDeclaration",
-                  "scope": 592,
-                  "src": "114:14:5",
+                  "scope": 483,
+                  "src": "114:14:4",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -250,10 +241,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 588,
+                    "id": 479,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "114:7:5",
+                    "src": "114:7:4",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -262,35 +253,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "101:28:5"
+              "src": "101:28:4"
             },
             "returnParameters": {
-              "id": 591,
+              "id": 482,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "138:0:5"
+              "src": "138:0:4"
             },
-            "scope": 593,
-            "src": "88:51:5",
+            "scope": 484,
+            "src": "88:51:4",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 594,
-        "src": "57:84:5",
-        "usedErrors": []
+        "scope": 485,
+        "src": "57:84:4"
       }
     ],
-    "src": "32:109:5"
+    "src": "32:109:4"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.3.1",
-  "updatedAt": "2021-05-08T15:39:50.458Z",
+  "updatedAt": "2021-06-01T20:29:15.783Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

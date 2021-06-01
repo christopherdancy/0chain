@@ -38,7 +38,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/IMintBurn.sol\":\"IMintBurn\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/IMintBurn.sol\":{\"keccak256\":\"0xfac964ec54f5c9d6a04923ffab899b147aa86bb134f1f789f3ee5a8a6bde4063\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://737853ad35664c170ae8ee3627bc82cf8f53a02e6befebfc60360a733c4b5f5f\",\"dweb:/ipfs/QmZo3dTAz2kW18Exop5zQoc5WJXcapL15ozDBBwFqmDjna\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to_\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/IMintBurn.sol\":\"IMintBurn\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christopherdancy/Blockchain/0chain/contracts/IMintBurn.sol\":{\"keccak256\":\"0xc37a8c62c3a8381c4380c80d8752a0d88def160740e70b420fadbbb0cd96aeb4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://030d7c9a8dd271abb3fbaf445f4d7bb01c6302d744a4ec604de59204773cb5c6\",\"dweb:/ipfs/QmZd6MnTwe7p36B6cpUW6Zd6nfzAHJUTrj76U6Bdhghy9H\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -46,26 +46,26 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "\n// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.4;\n\ninterface IMintBurn {\n  function mint(address to_, uint256 amount_) external;\n  function burn(address from_, uint256 amount_) external;\n}",
+  "source": "\n// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\ninterface IMintBurn {\n  function mint(address to_, uint256 amount_) external;\n  function burn(address from_, uint256 amount_) external;\n}",
   "sourcePath": "/Users/christopherdancy/Blockchain/0chain/contracts/IMintBurn.sol",
   "ast": {
     "absolutePath": "/Users/christopherdancy/Blockchain/0chain/contracts/IMintBurn.sol",
     "exportedSymbols": {
       "IMintBurn": [
-        390
+        312
       ]
     },
-    "id": 391,
+    "id": 313,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 375,
+        "id": 297,
         "literals": [
           "solidity",
           "^",
           "0.8",
-          ".4"
+          ".0"
         ],
         "nodeType": "PragmaDirective",
         "src": "34:23:2"
@@ -76,35 +76,32 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 390,
+        "id": 312,
         "linearizedBaseContracts": [
-          390
+          312
         ],
         "name": "IMintBurn",
-        "nameLocation": "69:9:2",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "40c10f19",
-            "id": 382,
+            "id": 304,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "92:4:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 380,
+              "id": 302,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 377,
+                  "id": 299,
                   "mutability": "mutable",
                   "name": "to_",
-                  "nameLocation": "105:3:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 304,
                   "src": "97:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -113,7 +110,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 376,
+                    "id": 298,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "97:7:2",
@@ -127,12 +124,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 379,
+                  "id": 301,
                   "mutability": "mutable",
                   "name": "amount_",
-                  "nameLocation": "118:7:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 304,
                   "src": "110:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -141,7 +137,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 378,
+                    "id": 300,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "110:7:2",
@@ -156,12 +152,12 @@
               "src": "96:30:2"
             },
             "returnParameters": {
-              "id": 381,
+              "id": 303,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "135:0:2"
             },
-            "scope": 390,
+            "scope": 312,
             "src": "83:53:2",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -169,25 +165,23 @@
           },
           {
             "functionSelector": "9dc29fac",
-            "id": 389,
+            "id": 311,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "burn",
-            "nameLocation": "148:4:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 387,
+              "id": 309,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 384,
+                  "id": 306,
                   "mutability": "mutable",
                   "name": "from_",
-                  "nameLocation": "161:5:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 389,
+                  "scope": 311,
                   "src": "153:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -196,7 +190,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 383,
+                    "id": 305,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "153:7:2",
@@ -210,12 +204,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 386,
+                  "id": 308,
                   "mutability": "mutable",
                   "name": "amount_",
-                  "nameLocation": "176:7:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 389,
+                  "scope": 311,
                   "src": "168:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -224,7 +217,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 385,
+                    "id": 307,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "168:7:2",
@@ -239,21 +232,20 @@
               "src": "152:32:2"
             },
             "returnParameters": {
-              "id": 388,
+              "id": 310,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "193:0:2"
             },
-            "scope": 390,
+            "scope": 312,
             "src": "139:55:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 391,
-        "src": "59:137:2",
-        "usedErrors": []
+        "scope": 313,
+        "src": "59:137:2"
       }
     ],
     "src": "34:162:2"
@@ -262,20 +254,20 @@
     "absolutePath": "/Users/christopherdancy/Blockchain/0chain/contracts/IMintBurn.sol",
     "exportedSymbols": {
       "IMintBurn": [
-        390
+        312
       ]
     },
-    "id": 391,
+    "id": 313,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 375,
+        "id": 297,
         "literals": [
           "solidity",
           "^",
           "0.8",
-          ".4"
+          ".0"
         ],
         "nodeType": "PragmaDirective",
         "src": "34:23:2"
@@ -286,35 +278,32 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 390,
+        "id": 312,
         "linearizedBaseContracts": [
-          390
+          312
         ],
         "name": "IMintBurn",
-        "nameLocation": "69:9:2",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "40c10f19",
-            "id": 382,
+            "id": 304,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "92:4:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 380,
+              "id": 302,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 377,
+                  "id": 299,
                   "mutability": "mutable",
                   "name": "to_",
-                  "nameLocation": "105:3:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 304,
                   "src": "97:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -323,7 +312,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 376,
+                    "id": 298,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "97:7:2",
@@ -337,12 +326,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 379,
+                  "id": 301,
                   "mutability": "mutable",
                   "name": "amount_",
-                  "nameLocation": "118:7:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 382,
+                  "scope": 304,
                   "src": "110:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -351,7 +339,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 378,
+                    "id": 300,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "110:7:2",
@@ -366,12 +354,12 @@
               "src": "96:30:2"
             },
             "returnParameters": {
-              "id": 381,
+              "id": 303,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "135:0:2"
             },
-            "scope": 390,
+            "scope": 312,
             "src": "83:53:2",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -379,25 +367,23 @@
           },
           {
             "functionSelector": "9dc29fac",
-            "id": 389,
+            "id": 311,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "burn",
-            "nameLocation": "148:4:2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 387,
+              "id": 309,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 384,
+                  "id": 306,
                   "mutability": "mutable",
                   "name": "from_",
-                  "nameLocation": "161:5:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 389,
+                  "scope": 311,
                   "src": "153:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -406,7 +392,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 383,
+                    "id": 305,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "153:7:2",
@@ -420,12 +406,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 386,
+                  "id": 308,
                   "mutability": "mutable",
                   "name": "amount_",
-                  "nameLocation": "176:7:2",
                   "nodeType": "VariableDeclaration",
-                  "scope": 389,
+                  "scope": 311,
                   "src": "168:15:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -434,7 +419,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 385,
+                    "id": 307,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "168:7:2",
@@ -449,32 +434,31 @@
               "src": "152:32:2"
             },
             "returnParameters": {
-              "id": 388,
+              "id": 310,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "193:0:2"
             },
-            "scope": 390,
+            "scope": 312,
             "src": "139:55:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 391,
-        "src": "59:137:2",
-        "usedErrors": []
+        "scope": 313,
+        "src": "59:137:2"
       }
     ],
     "src": "34:162:2"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.3.1",
-  "updatedAt": "2021-05-08T15:39:50.453Z",
+  "updatedAt": "2021-05-14T14:11:37.542Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

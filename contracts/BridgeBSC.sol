@@ -1,71 +1,63 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-import './IMintBurn.sol';
-
+import './interfaces/IZeroChainToken.sol';
 
 contract BridgeBSC is AccessControl{
-  bytes32 public MINTER_ROLE = keccak256("MINTER_ROLE");
   bytes32 public ADMIN_ROLE = keccak256("ADMIN_ROLE");
 
-  IMintBurn public token;
+  IZeroChainToken public token;
   uint public nonce;
   mapping(uint => bool) public processedNonces;
 
-  enum Step { Burn, Mint }
-  event Transfer(
-    address from,
+  event TransferingToEth(
     address to,
     uint amount,
     uint date,
-    uint nonce,
-    Step indexed step
+    uint nonce
   );
 
-  constructor(address _token, address minter, address admin) {
-    token = IMintBurn(_token);
+  event ReturningToBSC(
+    address to,
+    uint amount,
+    uint date,
+    uint nonce
+  );
+
+  constructor(address _token, address admin) {
+    token = IZeroChainToken(_token);
 
     _setupRole(ADMIN_ROLE, admin);
-    _setupRole(MINTER_ROLE, minter);
-    _setRoleAdmin(MINTER_ROLE, ADMIN_ROLE);
   }
 
-  function grantMinterRole (address newMinter) public {
-      grantRole(MINTER_ROLE, newMinter);
+  function hasAdminRole (address admin) public view returns(bool) {
+      return hasRole(ADMIN_ROLE, admin);
   }
 
-  function revokeMinterRole (address previousMinter) public {
-      revokeRole(MINTER_ROLE, previousMinter);
-  }
-
-  function transferFromBSCToETH(address to_, uint amount_) external {
-    token.burn(msg.sender, amount_);
-    emit Transfer(
-      msg.sender,
-      to_,
-      amount_,
+  function transferToEth(address to, uint amount) external {
+    token.burn(msg.sender, amount);
+    emit TransferingToEth(
+      to,
+      amount,
       block.timestamp,
-      nonce,
-      Step.Burn
+      nonce
     );
     nonce++;
   }
 
-  function transferFromETHToBSC(address from, address to, uint amount, uint otherChainNonce) external {
-    require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
+  function returnToBSC(address to, uint amount, uint otherChainNonce) external {
+    require(hasRole(ADMIN_ROLE, msg.sender), "Caller is not an admin");
     require(processedNonces[otherChainNonce] == false, 'transfer already processed');
     processedNonces[otherChainNonce] = true;
     token.mint(to, amount);
-    emit Transfer(
-      from,
+    emit ReturningToBSC(
       to,
       amount,
       block.timestamp,
-      otherChainNonce,
-      Step.Mint
+      otherChainNonce
     );
   }
 }
